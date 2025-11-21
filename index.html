@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>钢铁表面缺陷检测学术研究平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#165DFF',
+              secondary: '#36D399',
+              accent: '#FFAA33',
+              dark: '#1E293B',
+              light: '#F8FAFC'
+            },
+            fontFamily: {
+              inter: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          }
+        },
+        plugins: [
+            function({ addUtilities }) {
+                const newUtilities = {
+                    '.line-clamp-1': {
+                        overflow: 'hidden',
+                        display: '-webkit-box',
+                        '-webkit-box-orient': 'vertical',
+                        '-webkit-line-clamp': '1',
+                    },
+                    '.line-clamp-2': {
+                        overflow: 'hidden',
+                        display: '-webkit-box',
+                        '-webkit-box-orient': 'vertical',
+                        '-webkit-line-clamp': '2',
+                    },
+                    '.text-shadow': {
+                        textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    },
+                }
+                addUtilities(newUtilities)
+            }
+        ]
+      }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+            .nav-link {
+                @apply relative px-4 py-2 text-gray-700 hover:text-primary transition-colors duration-300 cursor-pointer;
+            }
+            .nav-link::after {
+                @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+            }
+            .btn-secondary {
+                @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+            }
+            .section-title {
+                @apply text-3xl md:text-4xl font-bold text-dark mb-4 relative inline-block;
+            }
+            .section-title::after {
+                @apply content-[''] absolute bottom-[-8px] left-0 w-16 h-1 bg-primary rounded-full;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
